@@ -1,20 +1,28 @@
 import React, { FormEvent, useState } from 'react';
+import { useHistory } from 'react-router-dom';
+import bcrypt from 'bcrypt';
+
 import api from '../../services/api';
+import { login } from '../../services/auth';
 
 import '../../styles/pages/login.css';
-
 import logo from '../../images/logo-vertical.svg';
 
 export default function Login() {
+  const history = useHistory();
+
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
   function handleSubmit(event: FormEvent) {
     event.preventDefault();
 
-    api.post('/auth', { email, password })
+    const encryptedPassword = bcrypt.hash(password, 10);
+
+    api.post('/auth', { email, encryptedPassword })
       .then((response) => {
-        console.log(response);
+        login(response.data.token);
+        history.push('/app');
       })
       .catch((error) => {
         console.log(error);
