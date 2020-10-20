@@ -2,11 +2,9 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { FiArrowRight } from 'react-icons/fi';
 
-// Stylesheets
-import '../styles/pages/landing.css';
+import 'styles/pages/landing.css';
 
-// Images
-import logoImg from '../images/logo.svg';
+import logoImg from 'images/logos/logo-horizontal.svg';
 
 function Landing() {
   return (
@@ -14,15 +12,19 @@ function Landing() {
       <div className="content-wrapper">
         <img src={logoImg} alt="Happy" />
 
-        <main>
-          <h1>Leve felicidade para o mundo</h1>
-          <p>Visite orfanatos e mude o dia de muitas crianças.</p>
-        </main>
-
         <div className="location">
           <strong>Caxias</strong>
           <span>Maranhão</span>
         </div>
+
+        <Link to="/login" className="enter-login">
+          Acesso restrito
+        </Link>
+
+        <main>
+          <h1>Leve felicidade para o mundo</h1>
+          <p>Visite orfanatos e mude o dia de muitas crianças.</p>
+        </main>
 
         <Link to="/app" className="enter-app">
           <FiArrowRight size={26} color="rgba(0, 0, 0, 0.6)" />

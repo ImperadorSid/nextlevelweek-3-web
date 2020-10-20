@@ -4,15 +4,13 @@ import {
   Map, TileLayer, Marker, Popup,
 } from 'react-leaflet';
 import { FiPlus, FiArrowRight } from 'react-icons/fi';
-import api from '../services/api';
+import api from 'services/api';
 
-// Stylesheets
-import '../styles/pages/orphanages-map.css';
+import 'styles/pages/orphanages-map.css';
 import 'leaflet/dist/leaflet.css';
 
-// Images
-import mapIcon from '../utils/mapIcon';
-import mapMarkerImg from '../images/map-marker.svg';
+import mapIcon from 'utils/mapIcon';
+import mapMarkerImg from 'images/utils/map-marker.svg';
 
 interface IOrphanage {
   id: number;

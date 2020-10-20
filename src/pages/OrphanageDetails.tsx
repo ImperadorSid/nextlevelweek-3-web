@@ -1,16 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import { FaWhatsapp } from 'react-icons/fa';
+// import { FaWhatsapp } from 'react-icons/fa';
 import { FiClock, FiInfo } from 'react-icons/fi';
 import { Map, Marker, TileLayer } from 'react-leaflet';
-import Sidebar from '../components/Sidebar';
-import api from '../services/api';
+import Sidebar from 'components/Sidebar';
+import api from 'services/api';
 
-// Stylesheets
-import '../styles/pages/orphanage.css';
+import 'styles/pages/orphanage.css';
 
-// Imagens
-import mapIcon from '../utils/mapIcon';
+import mapIcon from 'utils/mapIcon';
 
 interface IOrphanage {
   latitude: number;
@@ -31,7 +29,7 @@ interface IOrphanageParams {
   id: string;
 }
 
-export default function Orphanage() {
+export default function OrphanageDetails() {
   const params = useParams<IOrphanageParams>();
   const [orphanage, setOrphanage] = useState<IOrphanage>();
   const [activeImageIndex, setActiveImageIndex] = useState(0);
@@ -52,7 +50,7 @@ export default function Orphanage() {
 
       <main>
         <div className="orphanage-details">
-          <img src={orphanage.images[activeImageIndex].path} alt={orphanage.name} />
+          {orphanage.images.length > 0 && <img src={orphanage.images[activeImageIndex].path} alt={orphanage.name} />}
 
           <div className="images">
             {orphanage.images.map((image, index) => (

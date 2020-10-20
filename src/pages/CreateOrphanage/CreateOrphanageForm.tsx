@@ -3,16 +3,14 @@ import { useHistory } from 'react-router-dom';
 import { Map, Marker, TileLayer } from 'react-leaflet';
 import { FiPlus } from 'react-icons/fi';
 import { LeafletMouseEvent } from 'leaflet';
-import Sidebar from '../components/Sidebar';
+import Sidebar from 'components/Sidebar';
 
-// Stylesheets
-import '../styles/pages/create-orphanage.css';
+import 'styles/pages/create-orphanage/create-orphanage.css';
 
-// Images
-import mapIcon from '../utils/mapIcon';
-import api from '../services/api';
+import mapIcon from 'utils/mapIcon';
+import api from 'services/api';
 
-export default function CreateOrphanage() {
+export default function CreateOrphanageForm() {
   const history = useHistory();
 
   const [position, setPosition] = useState({ latitude: 0, longitude: 0 });
@@ -97,12 +95,12 @@ export default function CreateOrphanage() {
             <div className="input-block">
               <label htmlFor="name">
                 Nome
-                <input
-                  id="name"
-                  value={name}
-                  onChange={(event) => setName(event.target.value)}
-                />
               </label>
+              <input
+                id="name"
+                value={name}
+                onChange={(event) => setName(event.target.value)}
+              />
             </div>
 
             <div className="input-block">
@@ -129,13 +127,13 @@ export default function CreateOrphanage() {
                 }
                 <label htmlFor="image[]" className="new-image">
                   <FiPlus size={24} color="#15b6d6" />
-                  <input
-                    multiple
-                    type="file"
-                    id="image[]"
-                    onChange={handleSelectedImages}
-                  />
                 </label>
+                <input
+                  multiple
+                  type="file"
+                  id="image[]"
+                  onChange={handleSelectedImages}
+                />
               </div>
 
             </div>
@@ -147,23 +145,23 @@ export default function CreateOrphanage() {
             <div className="input-block">
               <label htmlFor="instructions">
                 Instruções
-                <textarea
-                  id="instructions"
-                  value={instructions}
-                  onChange={(event) => setInstructions(event.target.value)}
-                />
               </label>
+              <textarea
+                id="instructions"
+                value={instructions}
+                onChange={(event) => setInstructions(event.target.value)}
+              />
             </div>
 
             <div className="input-block">
               <label htmlFor="openingHours">
                 Horário de funcionamento
-                <input
-                  id="opening_hours"
-                  value={openingHours}
-                  onChange={(event) => setOpeningHours(event.target.value)}
-                />
               </label>
+              <input
+                id="opening_hours"
+                value={openingHours}
+                onChange={(event) => setOpeningHours(event.target.value)}
+              />
             </div>
 
             <div className="input-block">
@@ -195,5 +193,3 @@ export default function CreateOrphanage() {
     </div>
   );
 }
-
-// return `https://a.tile.openstreetmap.org/${z}/${x}/${y}.png`;
