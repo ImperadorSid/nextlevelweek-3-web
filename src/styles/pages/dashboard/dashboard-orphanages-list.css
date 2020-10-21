@@ -1,0 +1,95 @@
+#page-dashboard-orphanages-list {
+  min-height: 100vh;
+
+  display: flex;
+}
+
+#page-dashboard-orphanages-list main {
+  flex: 1;
+}
+
+.orphanages-list {
+  width: 75%;
+  margin: 64px auto;
+  overflow: hidden;
+}
+
+.orphanages-list header {
+  width: 100%;
+  padding-bottom: 20px;
+  margin-bottom: 30px;
+  border-bottom: 1px solid #D3E2E5;
+
+
+  display: flex;
+  justify-content: space-between;
+}
+
+.orphanages-list header h1,
+.orphanages-list header p {
+  display: inline-block;
+}
+
+.orphanages-list header h1 {
+  color: #4D6F80;
+  font-size: 32px;
+  line-height: 34px;
+}
+
+.orphanages-list header p {
+  color: #8FA7B2;
+}
+
+.orphanages-list-content {
+  width: 100%;
+  
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 30px;
+}
+
+.orphanages-list .orphanage-card {
+  height: 250px;
+
+  border: 1px solid #D3E2E5;
+  border-radius: 20px;
+  background: #FFFFFF;
+
+  display: flex;
+  flex-direction: column;
+}
+.orphanages-list .orphanage-card .leaflet-container {
+  border-radius: 20px; 
+}
+
+.orphanages-list .orphanage-card .orphanage-card-info {
+  height: 25%;
+  padding: 32px 24px;
+  
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.orphanages-list .orphanage-card .orphanage-card-info p {
+  font: 700 20px Nunito;
+  color: #4D6F80;
+}
+
+.orphanages-list .orphanage-card .orphanage-card-actions {
+  display: flex;
+  justify-content: space-around;
+}
+
+.orphanages-list .orphanage-card .orphanage-card-button {
+  width: 40px;
+  height: 40px;
+  margin: 0 5px;
+  
+  background: #EBF2F5;
+  border-radius: 12px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

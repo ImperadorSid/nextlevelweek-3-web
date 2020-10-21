@@ -1,9 +1,9 @@
-#page-orphanage {
+#page-orphanage-details {
   display: flex;
   min-height: 100vh;
 }
 
-#page-orphanage main {
+#page-orphanage-details main {
   flex: 1;
 }
 

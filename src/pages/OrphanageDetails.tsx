@@ -6,7 +6,7 @@ import { Map, Marker, TileLayer } from 'react-leaflet';
 import Sidebar from 'components/Sidebar';
 import api from 'services/api';
 
-import 'styles/pages/orphanage.css';
+import 'styles/pages/orphanage-details.css';
 
 import mapIcon from 'utils/mapIcon';
 
@@ -45,7 +45,7 @@ export default function OrphanageDetails() {
   }
 
   return (
-    <div id="page-orphanage">
+    <div id="page-orphanage-details">
       <Sidebar />
 
       <main>

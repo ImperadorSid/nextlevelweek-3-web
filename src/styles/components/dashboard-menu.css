@@ -1,0 +1,48 @@
+aside.dashboard-menu {
+  position: fixed;
+  height: 100%;
+  padding: 32px 24px;
+  background: #15C3D6;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+aside.dashboard-menu img {
+  width: 48px;
+}
+
+aside.dashboard-menu .dashboard-options {
+  display: flex;
+  flex-direction: column;
+  
+}
+
+aside.dashboard-menu .dashboard-options * + *{
+  margin-top: 20px;
+}
+
+aside.dashboard-menu footer button {
+  /* width: 48px;
+  height: 48px; */
+
+  /* border: 0; */
+
+  /* background: #12AFCB;
+  border-radius: 16px; */
+
+  /* cursor: pointer; */
+
+  /* transition: background-color 0.2s; */
+
+  /* display: flex; */
+  /* justify-content: center;
+  align-items: center; */
+}
+
+aside.dashboard-menu footer a:hover,
+aside.dashboard-menu footer button:hover {
+  /* background: #17D6EB; */
+}
