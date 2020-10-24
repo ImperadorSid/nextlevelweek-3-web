@@ -1,0 +1,63 @@
+#page-dashboard-delete {
+  height: 100vh;
+  background: #FF669D;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#page-dashboard-delete .dashboard-delete {
+  min-width: 1100px;
+  min-height: 680px;
+  
+  background: url('../../../images/arts/dashboard-delete.svg') no-repeat 80%;
+
+  display: flex;
+  align-items: center;
+}
+
+#page-dashboard-delete .dashboard-delete main {
+  width: 350px;
+  height: 400px;
+
+  text-align: center;
+  
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+
+#page-dashboard-delete .dashboard-delete h1 {
+  font-size: 80px;
+  font-weight: 800;
+}
+
+#page-dashboard-delete .dashboard-delete p {
+  font-size: 24px;
+  line-height: 34px;
+
+  margin-bottom: 70px;
+}
+
+#page-dashboard-delete .dashboard-delete a {
+  width: 243px;
+  height: 64px;
+  
+  background: #D6487B;
+  color: #FFFFFF;
+  font-weight: 800;
+  text-decoration: none;
+  border-radius: 20px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  transition: background 0.2s;
+}
+
+#page-dashboard-delete .dashboard-delete a:hover {
+  background: #E66595;
+}

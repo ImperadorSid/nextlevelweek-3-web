@@ -1,0 +1,61 @@
+#page-finish-create {
+  height: 100vh;
+  background: #37C77F;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#page-finish-create .finish-create {
+  min-width: 1100px;
+  min-height: 680px;
+  
+  background: url('../../../images/arts/finish-create.svg') no-repeat 80%;
+
+  display: flex;
+  align-items: center;
+}
+
+#page-finish-create .finish-create main {
+  width: 400px;
+  height: 400px;
+
+  text-align: center;
+  
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+
+#page-finish-create .finish-create h1 {
+  font-size: 80px;
+  font-weight: 800;
+}
+
+#page-finish-create .finish-create p {
+  font-size: 24px;
+  line-height: 34px;
+}
+
+#page-finish-create .finish-create a {
+  width: 243px;
+  height: 64px;
+  
+  background: #31B272;
+  color: #FFFFFF;
+  font-weight: 800;
+  text-decoration: none;
+  border-radius: 20px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  transition: background 0.2s;
+}
+
+#page-finish-create .finish-create a:hover {
+  background: #3BD689;
+}

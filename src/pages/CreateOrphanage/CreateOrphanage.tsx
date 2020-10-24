@@ -10,7 +10,7 @@ import 'styles/pages/create-orphanage/create-orphanage.css';
 import mapIcon from 'utils/mapIcon';
 import api from 'services/api';
 
-export default function CreateOrphanageForm() {
+export default function CreateOrphanage() {
   const history = useHistory();
 
   const [position, setPosition] = useState({ latitude: 0, longitude: 0 });
