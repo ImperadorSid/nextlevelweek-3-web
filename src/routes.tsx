@@ -5,14 +5,14 @@ import Login from 'pages/Authentication/Login';
 import ForgotPassword from 'pages/Authentication/ForgotPassword';
 import ResetPassword from 'pages/Authentication/ResetPassword';
 
-import OrphanageDetails from 'pages/OrphanageDetails';
-import DashboardOrphanagesList from 'pages/Dashboard/DashboardOrphanagesList';
-import DashboardPendingOrphanages from 'pages/Dashboard/DashboardPendingOrphanages';
+import DashboardList from 'pages/Dashboard/DashboardList';
+import DashboardPending from 'pages/Dashboard/DashboardPending';
 
 import Landing from 'pages/Landing';
 import OrphanagesMap from 'pages/OrphanagesMap';
 
 import CreateOrphanageForm from 'pages/CreateOrphanage/CreateOrphanageForm';
+import OrphanageDetails from 'pages/OrphanageDetails';
 
 function Routes() {
   return (
@@ -22,8 +22,9 @@ function Routes() {
         <Route path="/login/forgotPassword" component={ForgotPassword} />
         <Route path="/login/resetPassword" component={ResetPassword} />
 
-        <Route path="/dashboard/list" component={DashboardOrphanagesList} />
-        <Route path="/dashboard/pending" component={DashboardPendingOrphanages} />
+        <Route path="/dashboard" exact component={DashboardList} />
+        <Route path="/dashboard/list" component={DashboardList} />
+        <Route path="/dashboard/pending" component={DashboardPending} />
 
         <Route path="/" exact component={Landing} />
         <Route path="/app" component={OrphanagesMap} />

@@ -8,6 +8,8 @@ aside.dashboard-menu {
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
+
+  z-index: 10;
 }
 
 aside.dashboard-menu img {
@@ -24,25 +26,43 @@ aside.dashboard-menu .dashboard-options * + *{
   margin-top: 20px;
 }
 
-aside.dashboard-menu footer button {
-  /* width: 48px;
-  height: 48px; */
-
-  /* border: 0; */
-
-  /* background: #12AFCB;
-  border-radius: 16px; */
-
-  /* cursor: pointer; */
-
-  /* transition: background-color 0.2s; */
-
-  /* display: flex; */
-  /* justify-content: center;
-  align-items: center; */
+aside.dashboard-menu a:visited {
+  color: inherit;
 }
 
-aside.dashboard-menu footer a:hover,
-aside.dashboard-menu footer button:hover {
-  /* background: #17D6EB; */
+aside.dashboard-menu .active-menu-button,
+aside.dashboard-menu .inactive-menu-button {
+  padding: 12px;
+  border-radius: 16px;
+
+  display: flex;
+  justify-content:center;
+  align-items: center;
+}
+
+aside.dashboard-menu .active-menu-button {
+  color: #0089A5;
+  background: #FFD666;  
+}
+
+aside.dashboard-menu .inactive-menu-button {
+  color: #FFFFFF;
+  background: #12AFCB;
+}
+
+aside.dashboard-menu .dashboard-options a {
+  position: relative;
+}
+
+.dot-badge {
+  width: 8px;
+  height: 8px;
+
+  background: #FFD666;
+  border-radius: 50%;
+
+  position: absolute;
+  top: -10%;
+  right: 20%;
+  
 }

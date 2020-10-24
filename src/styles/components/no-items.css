@@ -1,0 +1,10 @@
+.no-items {
+  height: 70vh;
+
+  color: #8FA7B2;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}

@@ -1,5 +1,6 @@
 import React, { useState, FormEvent } from 'react';
-import { Link } from 'react-router-dom';
+import { useHistory, Link } from 'react-router-dom';
+
 import LargeSidebar from 'components/LargeSidebar';
 
 import 'styles/pages/authentication/login.css';
@@ -8,9 +9,11 @@ function Login() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [rememberMe, setRememberMe] = useState(false);
+  const history = useHistory();
 
   function handleLogin(event: FormEvent) {
     event.preventDefault();
+    history.push('/dashboard');
   }
 
   return (
