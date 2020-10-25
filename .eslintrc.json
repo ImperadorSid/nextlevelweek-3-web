@@ -44,6 +44,7 @@
     "max-len": "off",
     "no-await-in-loop": "off",
     "no-use-before-define": "off",
+    "no-unused-vars": "off",
     "import/extensions": [
       "error",
       "ignorePackages",
@@ -63,6 +64,12 @@
           ".jsx",
           ".tsx"
         ]
+      }
+    ],
+    "react/require-default-props": [
+      "error",
+      {
+        "ignoreFunctionalComponents": true
       }
     ],
     "jsx-a11y/label-has-associated-control": [

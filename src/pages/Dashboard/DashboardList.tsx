@@ -27,35 +27,26 @@ export default function DashboardList() {
           </header>
 
           <div className="orphanages-list-content">
-            <OrphanageCard
-              orphanage={testOrphanage}
-              buttons={[
-                <FiEdit3 />,
-                <FiTrash />,
-              ]}
-            />
-            <OrphanageCard
-              orphanage={testOrphanage}
-              buttons={[
-                <FiEdit3 />,
-                <FiTrash />,
-              ]}
-            />
-            <OrphanageCard
-              orphanage={testOrphanage}
-              buttons={[
-                <FiEdit3 />,
-                <FiTrash />,
-              ]}
-            />
-            <OrphanageCard
-              orphanage={testOrphanage}
-              buttons={[
-                <FiEdit3 title="Edit" />,
-                <FiTrash title="Delete" />,
-              ]}
-            />
 
+            <OrphanageCard orphanage={testOrphanage}>
+              <FiEdit3 title="Edit" />
+              <FiTrash title="Delete" />
+            </OrphanageCard>
+
+            <OrphanageCard orphanage={testOrphanage}>
+              <FiEdit3 title="Edit" />
+              <FiTrash title="Delete" />
+            </OrphanageCard>
+
+            <OrphanageCard orphanage={testOrphanage}>
+              <FiEdit3 title="Edit" />
+              <FiTrash title="Delete" />
+            </OrphanageCard>
+
+            <OrphanageCard orphanage={testOrphanage}>
+              <FiEdit3 title="Edit" />
+              <FiTrash title="Delete" />
+            </OrphanageCard>
           </div>
 
           {empty && <NoItems />}

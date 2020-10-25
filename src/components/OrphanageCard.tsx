@@ -1,7 +1,5 @@
 import React from 'react';
-// import { Link } from 'react-router-dom';
 import { Map, TileLayer, Marker } from 'react-leaflet';
-// import { FiEdit3, FiTrash } from 'react-icons/fi';
 
 import 'styles/components/orphanage-card.css';
 
@@ -14,11 +12,12 @@ interface OrphanageCardProps {
     latitude: number;
     longitude: number;
   };
-  buttons: Array<any>;
+
+  children: React.ReactNode;
 }
 
 export default function OrphanageCard(props: OrphanageCardProps) {
-  const { orphanage, buttons } = props;
+  const { orphanage, children } = props;
 
   return (
     <div className="orphanage-card">
@@ -44,9 +43,9 @@ export default function OrphanageCard(props: OrphanageCardProps) {
         <p>{orphanage.name}</p>
 
         <div className="orphanage-card-actions">
-          {buttons.map((button) => (
-            <div key={button.type.name} className="orphanage-card-button">
-              {button}
+          {React.Children.map(children, (child) => (
+            <div className="orphanage-card-button">
+              {child}
             </div>
           ))}
         </div>

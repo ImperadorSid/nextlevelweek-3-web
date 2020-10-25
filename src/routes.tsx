@@ -10,6 +10,7 @@ import ResetPassword from 'pages/Authentication/ResetPassword';
 
 import DashboardList from 'pages/Dashboard/DashboardList';
 import DashboardPending from 'pages/Dashboard/DashboardPending';
+import DashboardEdit from 'pages/Dashboard/DashboardEdit';
 import DashboardDelete from 'pages/Dashboard/DashboardDelete';
 
 import OrphanageDetails from 'pages/OrphanageDetails';
@@ -30,7 +31,8 @@ function Routes() {
         <Route path="/dashboard" exact component={DashboardList} />
         <Route path="/dashboard/list" component={DashboardList} />
         <Route path="/dashboard/pending" component={DashboardPending} />
-        <Route path="/dashboard/delete" component={DashboardDelete} />
+        <Route path="/dashboard/edit/:id" component={DashboardEdit} />
+        <Route path="/dashboard/delete/:id" component={DashboardDelete} />
 
         <Route path="/orphanage/create" exact component={CreateOrphanage} />
         <Route path="/orphanage/create/finish" component={FinishCreate} />

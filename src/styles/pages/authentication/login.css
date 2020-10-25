@@ -6,35 +6,6 @@
   display: flex;
 }
 
-#page-login aside {
-  min-width: 1100px;
-  background: linear-gradient(329.54deg, #29B6D1 0%, #00C7C7 100%);
-  padding: 80px;
-
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
-
-#page-login aside header img {
-  width: 300px;
-}
-
-#page-login aside footer {
-  font: 24px Nunito;
-  line-height: 34px;
-  margin-top: 100px;
-
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-}
-
-#page-login aside footer strong {
-  font-weight: 800;
-}
-
 #page-login main {
   background: #FFFFFF;
   width: 100%;

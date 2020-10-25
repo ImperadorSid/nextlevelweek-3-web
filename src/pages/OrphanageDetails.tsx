@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-// import { FaWhatsapp } from 'react-icons/fa';
 import { FiClock, FiInfo } from 'react-icons/fi';
 import { Map, Marker, TileLayer } from 'react-leaflet';
+
 import Sidebar from 'components/Sidebar';
 import api from 'services/api';
 
@@ -18,11 +18,6 @@ interface IOrphanage {
   instructions: string;
   openingHours: string;
   openOnWeekends: string;
-
-  images: Array<{
-    id: number;
-    path: string;
-  }>;
 }
 
 interface IOrphanageParams {
@@ -32,7 +27,6 @@ interface IOrphanageParams {
 export default function OrphanageDetails() {
   const params = useParams<IOrphanageParams>();
   const [orphanage, setOrphanage] = useState<IOrphanage>();
-  const [activeImageIndex, setActiveImageIndex] = useState(0);
 
   useEffect(() => {
     api.get(`orphanages/${params.id}`).then((response) => {
@@ -50,23 +44,6 @@ export default function OrphanageDetails() {
 
       <main>
         <div className="orphanage-details">
-          {orphanage.images.length > 0 && <img src={orphanage.images[activeImageIndex].path} alt={orphanage.name} />}
-
-          <div className="images">
-            {orphanage.images.map((image, index) => (
-              <button
-                key={image.id}
-                className={activeImageIndex === index ? 'active' : ''}
-                type="button"
-                onClick={() => {
-                  setActiveImageIndex(index);
-                }}
-              >
-                <img src={image.path} alt={orphanage.name} />
-              </button>
-            ))}
-          </div>
-
           <div className="orphanage-details-content">
             <h1>{orphanage.name}</h1>
             <p>{orphanage.about}</p>
@@ -122,13 +99,7 @@ export default function OrphanageDetails() {
                   fim de semana
                 </div>
               )}
-
             </div>
-
-            {/* <button type="button" className="contact-button">
-              <FaWhatsapp size={20} color="#FFF" />
-              Entrar em contato
-            </button> */}
           </div>
         </div>
       </main>

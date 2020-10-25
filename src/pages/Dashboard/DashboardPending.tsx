@@ -29,12 +29,9 @@ export default function DashboardPending() {
           </header>
 
           <div className="orphanages-pending-content">
-            <OrphanageCard
-              orphanage={testOrphanage}
-              buttons={[
-                <FiArrowLeft />,
-              ]}
-            />
+            <OrphanageCard orphanage={testOrphanage}>
+              <FiArrowLeft title="Authorize" />
+            </OrphanageCard>
           </div>
 
           { empty && <NoItems />}
