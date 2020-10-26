@@ -1,21 +1,26 @@
-import React from 'react';
-// import { Link } from 'react-router-dom';
+import React, { useEffect, useState } from 'react';
 import { FiEdit3, FiTrash } from 'react-icons/fi';
+import { useHistory } from 'react-router-dom';
+
 import DashboardMenu from 'components/DashboardMenu';
 import OrphanageCard from 'components/OrphanageCard';
 import NoItems from 'components/NoItems';
 
+import api from 'services/api';
+
 import 'styles/pages/dashboard/dashboard-list.css';
 
-const testOrphanage = {
-  id: 4,
-  latitude: -4.8632126,
-  longitude: -43.3584274,
-  name: 'Se não fosse',
-};
-const empty = false;
-
 export default function DashboardList() {
+  const history = useHistory();
+
+  const [orphanages, setOrphanages] = useState([]);
+
+  useEffect(() => {
+    api.get('/all-orphanages').then((response) => {
+      setOrphanages(response.data);
+    });
+  }, []);
+
   return (
     <div id="page-dashboard-list">
       <DashboardMenu activeMenuIndex={0} />
@@ -26,30 +31,26 @@ export default function DashboardList() {
             <p>2 orfanatos</p>
           </header>
 
-          <div className="orphanages-list-content">
-
-            <OrphanageCard orphanage={testOrphanage}>
-              <FiEdit3 title="Edit" />
-              <FiTrash title="Delete" />
-            </OrphanageCard>
-
-            <OrphanageCard orphanage={testOrphanage}>
-              <FiEdit3 title="Edit" />
-              <FiTrash title="Delete" />
-            </OrphanageCard>
-
-            <OrphanageCard orphanage={testOrphanage}>
-              <FiEdit3 title="Edit" />
-              <FiTrash title="Delete" />
-            </OrphanageCard>
-
-            <OrphanageCard orphanage={testOrphanage}>
-              <FiEdit3 title="Edit" />
-              <FiTrash title="Delete" />
-            </OrphanageCard>
-          </div>
-
-          {empty && <NoItems />}
+          {orphanages.length > 0 ? (
+            <div className="orphanages-list-content">
+              {orphanages.map((orphanage) => {
+                const {
+                  id, name, latitude, longitude,
+                } = orphanage;
+                return (
+                  <OrphanageCard orphanage={{
+                    id, name, latitude, longitude,
+                  }}
+                  >
+                    <FiEdit3 title="Edit" onClick={() => history.push(`/dashboard/edit/${id}`)} />
+                    <FiTrash title="Delete" onClick={() => history.push(`/dashboard/delete/${id}`)} />
+                  </OrphanageCard>
+                );
+              })}
+            </div>
+          ) : (
+            <NoItems />
+          )}
         </div>
       </main>
     </div>

@@ -17,8 +17,9 @@ export default function CreateOrphanage() {
   const [pending, setPending] = useState(true);
 
   useEffect(() => {
-    api.get(`orphanages/${params.id}`).then((response) => {
+    api.get(`/orphanages/${params.id}`).then((response) => {
       setOrphanage(response.data);
+      setPending(response.data.pending);
     });
   }, [params.id]);
 

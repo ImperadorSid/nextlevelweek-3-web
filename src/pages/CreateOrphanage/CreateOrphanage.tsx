@@ -13,7 +13,7 @@ export default function CreateOrphanage() {
 
   async function createOrphanage(data: Orphanage) {
     await api.post('/orphanages', data);
-    history.push('/app');
+    history.push('/orphanage/create/finish');
   }
 
   return (

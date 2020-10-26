@@ -29,7 +29,7 @@ export default function OrphanageDetails() {
   const [orphanage, setOrphanage] = useState<IOrphanage>();
 
   useEffect(() => {
-    api.get(`orphanages/${params.id}`).then((response) => {
+    api.get(`/orphanages/${params.id}`).then((response) => {
       setOrphanage(response.data);
     });
   }, [params.id]);

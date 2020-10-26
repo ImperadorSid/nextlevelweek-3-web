@@ -1,6 +1,8 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { FiMapPin, FiAlertCircle, FiPower } from 'react-icons/fi';
+
+import api from 'services/api';
 
 import 'styles/components/dashboard-menu.css';
 
@@ -12,11 +14,14 @@ interface DashboardMenuProps {
 
 export default function DashboardMenu(props: DashboardMenuProps) {
   const { activeMenuIndex } = props;
-  const newPending = true;
 
-  function buttonIndex(index: number) {
-    return activeMenuIndex === index ? 'active-menu-button' : 'inactive-menu-button';
-  }
+  const [hasPending, setHasPending] = useState(false);
+  useEffect(() => {
+    api.get('/pending-orphanages')
+      .then((response) => (setHasPending(response.data.length > 0)));
+  }, []);
+
+  const buttonIndex = (index: number) => (activeMenuIndex === index ? 'active-menu-button' : 'inactive-menu-button');
 
   return (
     <aside className="dashboard-menu">
@@ -34,7 +39,7 @@ export default function DashboardMenu(props: DashboardMenuProps) {
           <div className={buttonIndex(1)}>
             <FiAlertCircle size={24} />
           </div>
-          {newPending && activeMenuIndex !== 1 && <div className="dot-badge" />}
+          {hasPending && activeMenuIndex !== 1 && <div className="dot-badge" />}
         </Link>
       </div>
 

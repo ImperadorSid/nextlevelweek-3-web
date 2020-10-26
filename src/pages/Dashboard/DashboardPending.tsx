@@ -1,22 +1,24 @@
-import React from 'react';
-// import { Link } from 'react-router-dom';
+import React, { useEffect, useState } from 'react';
+import { useHistory } from 'react-router-dom';
 import { FiArrowLeft } from 'react-icons/fi';
 
 import DashboardMenu from 'components/DashboardMenu';
 import OrphanageCard from 'components/OrphanageCard';
 import NoItems from 'components/NoItems';
 
+import api from 'services/api';
 import 'styles/pages/dashboard/dashboard-pending.css';
 
 export default function DashboardPending() {
-  const testOrphanage = {
-    id: 4,
-    latitude: -4.8632126,
-    longitude: -43.3584274,
-    name: 'Se não fosse',
-  };
+  const history = useHistory();
 
-  const empty = false;
+  const [orphanages, setOrphanages] = useState([]);
+
+  useEffect(() => {
+    api.get('/pending-orphanages').then((response) => {
+      setOrphanages(response.data);
+    });
+  }, []);
 
   return (
     <div id="page-dashboard-pending">
@@ -28,14 +30,25 @@ export default function DashboardPending() {
             <h1>Cadastros pendentes</h1>
           </header>
 
-          <div className="orphanages-pending-content">
-            <OrphanageCard orphanage={testOrphanage}>
-              <FiArrowLeft title="Authorize" />
-            </OrphanageCard>
-          </div>
-
-          { empty && <NoItems />}
-
+          {orphanages.length > 0 ? (
+            <div className="orphanages-pending-content">
+              {orphanages.map((orphanage) => {
+                const {
+                  id, name, latitude, longitude,
+                } = orphanage;
+                return (
+                  <OrphanageCard orphanage={{
+                    id, name, latitude, longitude,
+                  }}
+                  >
+                    <FiArrowLeft title="Authorize" onClick={() => history.push(`/dashboard/edit/${id}`)} />
+                  </OrphanageCard>
+                );
+              })}
+            </div>
+          ) : (
+            <NoItems />
+          )}
         </div>
       </main>
     </div>
